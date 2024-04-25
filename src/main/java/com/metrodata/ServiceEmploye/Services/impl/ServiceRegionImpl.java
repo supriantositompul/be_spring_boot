@@ -5,19 +5,17 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.metrodata.ServiceEmploye.Services.GenericServices;
+import lombok.AllArgsConstructor;
 import com.metrodata.ServiceEmploye.Models.Entity.Region;
 import com.metrodata.ServiceEmploye.Repositories.RegionRepository;
 
 @Service
-public class ServiceRegionImpl implements GenericServices<Region> {
+@AllArgsConstructor
+public class ServiceRegionImpl implements GenericServices<Region, Integer> {
     private RegionRepository regionRepository;
 
-    public ServiceRegionImpl(RegionRepository regionRepository) {
-        this.regionRepository = regionRepository;
-    }
-
+    @Override
     public List<Region> getAll() {
         return regionRepository.findAll();
     }
@@ -27,8 +25,7 @@ public class ServiceRegionImpl implements GenericServices<Region> {
     public Region getById(Integer id) {
         return regionRepository
                 .findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "region not found"));
-
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Region not found!!!"));
     }
 
     @Override
@@ -41,17 +38,27 @@ public class ServiceRegionImpl implements GenericServices<Region> {
         return regionRepository.save(region);
     }
 
-
     @Override
-    public Region delete(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+    public Region update(Integer id, Region region) {
+        getById(id);
+        region.setId(id);
+        return regionRepository.save(region);
     }
 
+    @SuppressWarnings("null")
     @Override
-    public Region update(Integer id, Region Entity) {
-        // TODO Auto-generated method stub
-        return null;
+    public Region delete(Integer id) {
+        Region region = getById(id);
+        regionRepository.delete(region);
+        return region;
+    }
+
+    public List<Region> searchNameByNative(String name) {
+        return regionRepository.searchNameByNative("%" + name + "%");
+    }
+
+    public List<Region> searchNameByJPQL(String name) {
+        return regionRepository.searchNameByJPQL("%" + name + "%");
     }
 }
 

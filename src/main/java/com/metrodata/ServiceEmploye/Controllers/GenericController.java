@@ -2,15 +2,15 @@ package com.metrodata.ServiceEmploye.Controllers;
 
 import java.util.List;
 
-public interface GenericController <T> {
+public interface GenericController <T, ID> {
     List<T> getAll();
-    
-    T getById(Integer id);
+
+    T getById(ID id);
 
     T create(T Entity);
 
-    T update(Integer id, T Entity);
+    T update(ID id, T Entity);
 
-    T delete(T entity);
+    T delete(ID id);
 
 }

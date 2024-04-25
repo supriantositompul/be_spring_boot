@@ -16,7 +16,6 @@ public interface RegionRepository extends JpaRepository<Region, Integer> {
     @Query(value = "SELECT * FROM `tb_region` r WHERE r.region_name LIKE ?1", // parameterized query = ?1
             nativeQuery = true)
     List<Region> searchNameByNative(String name);
-
     Optional<Region> findByName(String name);
 
 }
