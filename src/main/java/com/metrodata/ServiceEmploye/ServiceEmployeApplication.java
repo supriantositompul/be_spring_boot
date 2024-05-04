@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ServiceEmployeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceEmployeApplication.class, args);
-			System.out.println("Successfully running the application!");
+		System.out.println("Successfully running the application!");
 	}
 }

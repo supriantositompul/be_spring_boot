@@ -37,6 +37,7 @@ public class CountryController
         return countryServiceImpl.getAll();
     }
 
+
     @GetMapping("/custom-all")
     public List<Map<String, Object>> getAllCustom() {
         return countryServiceImpl.getAllCustom();
@@ -57,7 +58,6 @@ public class CountryController
     public Map<String, Object> getByIdMap(@PathVariable Integer id) {
         return countryServiceImpl.getByIdMap(id);
     }
-
     @Override
     @PostMapping
     public Country create(@RequestBody Country country) {
@@ -90,7 +90,7 @@ public class CountryController
         return countryServiceImpl.update(id, country);
     }
 
-    @Override
+    // @Override
     @DeleteMapping("/{id}")
     public Country delete(@PathVariable Integer id) {
         return countryServiceImpl.delete(id);
