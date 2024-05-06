@@ -1,6 +1,5 @@
 package com.metrodata.ServiceEmploye.Models.Entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
@@ -36,6 +35,5 @@ public class Employee {
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private User user;
-
-
 }
+

@@ -15,13 +15,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
+
+
 @Entity
 @Table(name = "tb_region")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Region {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
