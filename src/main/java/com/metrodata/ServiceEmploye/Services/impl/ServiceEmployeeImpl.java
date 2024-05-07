@@ -42,7 +42,6 @@ public class ServiceEmployeeImpl implements GenericServices<Employee, Integer> {
     // public Employee create(Employee role) {
     //     return employeeRepository.save(role);
     //     }
-
     @Override
     public Employee update(Integer id, Employee employee) {
         getById(id);

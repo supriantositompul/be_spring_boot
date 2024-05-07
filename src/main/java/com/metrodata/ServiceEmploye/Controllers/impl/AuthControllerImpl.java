@@ -31,4 +31,9 @@ public class AuthControllerImpl implements AuthController<Employee, Registration
     public Employee addRole(@PathVariable Integer idEmployee, @RequestBody Role role) {
         return authServicesImpl.addRole(idEmployee, role);
     }
+
+    @PutMapping("/login")
+    public Employee login(@PathVariable Integer idEmployee, @RequestBody Role role) {
+        return null;
+    }
 }
