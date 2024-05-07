@@ -1,5 +1,6 @@
 package com.metrodata.ServiceEmploye.Services.impl;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,7 +12,14 @@ import java.util.List;
 
 @Service
 public class ServiceRoleImpl implements GenericServices<Role, Integer> {
+
+
     private RoleRepository roleRepository;
+
+
+    public ServiceRoleImpl(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     @Override
     public List<Role> getAll() {

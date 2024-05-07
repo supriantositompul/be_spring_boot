@@ -21,6 +21,8 @@ import lombok.AllArgsConstructor;
 public class RoleControllerImpl implements GenericController<Role, Integer> {
     private ServiceRoleImpl serviceRoleImpl;
 
+    @Override
+    @GetMapping
     public List<Role> getAll() {
         return serviceRoleImpl.getAll();
     }

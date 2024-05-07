@@ -31,7 +31,13 @@ public class EmployeeController implements GenericController<Employee, Integer> 
     public Employee getById(@PathVariable Integer id) {
         return serviceEmployeeImpl.getById(id);
     }
-    @Override
+
+    // @Override
+    // @PostMapping
+    // public Employee create(@RequestBody Employee employee) {
+    //     return serviceEmployeeImpl.create(employee);
+    // }
+
     public Employee create(@RequestBody Employee employee) {
         return null;
     }
@@ -49,6 +55,5 @@ public class EmployeeController implements GenericController<Employee, Integer> 
     public Employee delete(@PathVariable Integer id) {
         return serviceEmployeeImpl.delete(id);
     }
-
 
 }

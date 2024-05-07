@@ -38,5 +38,8 @@ public class Role {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "tb_tr_role_privilege", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "privilege_id"))
+
+    // Sementara
+    @JsonProperty(access = Access.WRITE_ONLY)
     private List<Privilege> privileges;
 }

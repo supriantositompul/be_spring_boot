@@ -13,9 +13,10 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ServiceEmployeeImpl implements GenericServices<Employee, Integer>{
+public class ServiceEmployeeImpl implements GenericServices<Employee, Integer> {
 
     private EmployeeRepository employeeRepository;
+
     @Override
     public List<Employee> getAll() {
         return employeeRepository.findAll();
@@ -30,9 +31,17 @@ public class ServiceEmployeeImpl implements GenericServices<Employee, Integer>{
                         "Employee is not found!"));
     }
 
-    public Employee create(Employee employee) {
+    @Override
+    @SuppressWarnings("null")
+    public Employee create(Employee role) {
         return null;
-        }
+    }
+
+    // @Override
+    // @SuppressWarnings("null")
+    // public Employee create(Employee role) {
+    //     return employeeRepository.save(role);
+    //     }
 
     @Override
     public Employee update(Integer id, Employee employee) {

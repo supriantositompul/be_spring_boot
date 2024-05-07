@@ -42,9 +42,13 @@ public class User {
     private Employee employee;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_tr_user_role", 
-            joinColumns = @JoinColumn(name = "user_id"), 
+    //@ManyToMany
+    @JoinTable(name = "tb_tr_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    
+
     private List<Role> roles;
+
+
+
 }

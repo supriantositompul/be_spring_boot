@@ -1,8 +1,7 @@
 package com.metrodata.ServiceEmploye.Controllers;
 
 
-public class AuthController {
-    // Employee registration(RegistrationRequest registraionRequest);
+public interface AuthController <T, REQ> {
 
-    // LoginResponse login(LoginResponse loginResponse);
+    T registration(REQ request);
 }
