@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.metrodata.ServiceEmploye.Controllers.AuthController;
 import com.metrodata.ServiceEmploye.Models.Entity.Employee;
 import com.metrodata.ServiceEmploye.Models.Entity.Role;
+import com.metrodata.ServiceEmploye.Models.dto.Request.LoginRequest;
 import com.metrodata.ServiceEmploye.Models.dto.Request.RegistrationRequest;
+import com.metrodata.ServiceEmploye.Models.dto.Response.LoginResponse;
 import com.metrodata.ServiceEmploye.Services.impl.AuthServicesImpl;
 
 import lombok.AllArgsConstructor;
@@ -18,11 +20,11 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/auth")
-public class AuthControllerImpl implements AuthController<Employee, RegistrationRequest> {
+public class AuthControllerImpl implements AuthController {
     private AuthServicesImpl authServicesImpl;
 
     @Override
-    @PostMapping("add-role/registration")
+    @PostMapping("/registration")
     public Employee registration(@RequestBody RegistrationRequest request) {
         return authServicesImpl.registration(request);
     }
@@ -32,8 +34,9 @@ public class AuthControllerImpl implements AuthController<Employee, Registration
         return authServicesImpl.addRole(idEmployee, role);
     }
 
-    @PutMapping("/login")
-    public Employee login(@PathVariable Integer idEmployee, @RequestBody Role role) {
-        return null;
+    @Override
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest request) {
+        return authServicesImpl.login(request);
     }
 }
