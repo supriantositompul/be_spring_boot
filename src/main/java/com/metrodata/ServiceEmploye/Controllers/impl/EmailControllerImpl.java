@@ -28,7 +28,7 @@ public class EmailControllerImpl implements EmailController {
         return serviceEmailImpl.sendSimpleMessage(emailRequest);
     }
 
-    @PostMapping("/attach")
+    @PostMapping("/add/attach")
     @Override
     public EmailRequest sendMessageWithAttachment(@RequestBody EmailRequest emailRequest) {
         return serviceEmailImpl.sendMessageWithAttachment(emailRequest);

@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -46,7 +47,6 @@ public class AuthServicesImpl implements AuthServices {
         user.setRoles(roles);
         user.setEmployee(employee);
         employee.setUser(user);
-
         return employeeRepository.save(employee);
     }
 

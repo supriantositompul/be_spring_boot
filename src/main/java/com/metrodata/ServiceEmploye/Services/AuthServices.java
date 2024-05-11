@@ -7,9 +7,9 @@ import com.metrodata.ServiceEmploye.Models.dto.Response.LoginResponse;
 
 public interface AuthServices {
     Employee registration(RegistrationRequest registrationRequest);
+
     LoginResponse login(LoginRequest loginRequest);
 }
-
 
 // public interface AuthServices<T, REQ> {
 //     T registration(REQ request);
