@@ -1,6 +1,6 @@
 package com.metrodata.ServiceEmploye.Controllers.impl;
 
-//import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 @RestController
 @RequestMapping("/region")
-//@PreAuthorize("hasRole('USER')")
+@PreAuthorize("hasAnyRole('USER', 'ADMIN_READ')")
 public class RegionController {
     private ServiceRegionImpl serviceRegionImpl;
 
@@ -27,35 +27,35 @@ public class RegionController {
 
     //End point : GetAll
     @GetMapping
-    //@PreAuthorize("hasAuthority('USER_READ')")
+    @PreAuthorize("hasAnyAuthority('USER_READ', 'ADMIN_READ')")
     public List<Region> getAll() {
         return serviceRegionImpl.getAll();
     }
 
     // Save operation
     @GetMapping("/{id}")
-    //@PreAuthorize("hasAuthority('USER_READ')")
+    @PreAuthorize("hasAnyAuthority('USER_READ', 'ADMIN_READ')")
     public Region getById(@PathVariable Integer id) {
         return serviceRegionImpl.getById(id);
     }
 
     //Post
     @PostMapping
-    //@PreAuthorize("hasAuthority('USER_CREATE')")
+    @PreAuthorize("hasAnyAuthority('USER_CREATE', 'ADMIN_READ')")
     public Region create(@RequestBody Region region) {
         return serviceRegionImpl.create(region);
     }
 
     //Update
     @PutMapping("/{id}")
-    //@PreAuthorize("hasAuthority('USER_UPDATE')")
+    @PreAuthorize("hasAnyAuthority('USER_UPDATE', 'ADMIN_READ')")
     public Region update(@PathVariable Integer id, @RequestBody Region region) {
         return serviceRegionImpl.update(id, region);
     }
 
     //Delete
     @DeleteMapping("/{id}")
-    //@PreAuthorize("hasAuthority('USER_DELETE')")
+    @PreAuthorize("hasAnyAuthority('USER_DELETE', 'ADMIN_READ')")
     public Region delete(@PathVariable Integer id) {
         return serviceRegionImpl.delete(id);
     }

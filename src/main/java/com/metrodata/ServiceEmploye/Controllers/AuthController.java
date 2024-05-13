@@ -8,7 +8,6 @@ import com.metrodata.ServiceEmploye.Models.dto.Response.LoginResponse;
 public interface AuthController {
 
     Employee registration(RegistrationRequest registrationRequest);
-
     LoginResponse login(LoginRequest loginRequest);
 }
 

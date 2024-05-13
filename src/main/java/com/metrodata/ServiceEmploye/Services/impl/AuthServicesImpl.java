@@ -43,7 +43,7 @@ public class AuthServicesImpl implements AuthServices {
         Employee employee = modelMapper.map(registrationRequest, Employee.class);
         User user = modelMapper.map(registrationRequest, User.class);
         user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
-        List<Role> roles = Collections.singletonList(serviceRoleImpl.getById(4));
+        List<Role> roles = Collections.singletonList(serviceRoleImpl.getById(3));
         user.setRoles(roles);
         user.setEmployee(employee);
         employee.setUser(user);
